@@ -67,7 +67,7 @@ const MultiplicationsParamsForm: React.FC<{
 
       <div>
         <button onClick={sendParams} className="button-root button-success">
-          OK
+          Close
         </button>
       </div>
     </div>

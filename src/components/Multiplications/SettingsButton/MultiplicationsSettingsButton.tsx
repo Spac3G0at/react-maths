@@ -10,7 +10,7 @@ const MultiplicationsSettingsButton = () => {
     <div style={{ display: "flex", alignItems: "center" }}>
       <button
         onClick={() => setShow(true)}
-        className="settings-button button-root button-success"
+        className="settings-button button-root button-info"
       >
         <VscSettings />
       </button>

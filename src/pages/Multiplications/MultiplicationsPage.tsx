@@ -14,12 +14,30 @@ const MultiplicationsPage: React.FC = () => {
 
       <MultiplicationsSettingsButton />
 
-      <button
-        onClick={() => setPlay(true)}
-        className="button-root button-primary"
+      <div
+        style={{
+          display: "flex",
+          height: "100%",
+          width: "100%",
+          justifyContent: "center",
+          marginTop: "50%",
+        }}
       >
-        Play <FiPlay />
-      </button>
+        <button
+          style={{
+            width: "100px",
+            height: "100px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "50%",
+          }}
+          onClick={() => setPlay(true)}
+          className="button-root button-success"
+        >
+          <FiPlay style={{ fontSize: "40px", marginLeft: "10px" }} />
+        </button>
+      </div>
 
       <MultiplicationsGame exit={() => setPlay(false)} show={play} />
     </Page>
