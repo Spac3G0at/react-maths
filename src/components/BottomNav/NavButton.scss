@@ -1,0 +1,21 @@
+.NavButton {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  background: transparent;
+  border-radius: 8px;
+  color: grey;
+  flex-direction: column;
+  outline: none;
+  border: none;
+  &.active {
+    background: var(--primary);
+    color: white;
+    margin-top: -20px;
+    -webkit-box-shadow: 2px 11px 15px 2px #b0b0b0;
+    box-shadow: 2px 11px 15px 2px #b0b0b0;
+  }
+}

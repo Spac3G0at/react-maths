@@ -1,0 +1,12 @@
+.BottomNav {
+  position: fixed;
+  bottom: 0;
+  height: 52px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: white;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
