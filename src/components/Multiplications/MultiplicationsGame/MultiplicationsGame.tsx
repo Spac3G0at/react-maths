@@ -5,6 +5,7 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import NumPad from "../../NumPad/NumPad";
 import { MultiplicationsContext } from "../../../contexts/MultiplicationsContext";
 import ProblemWindow from "../../ProblemWindow/ProblemWindow";
+import { generateProblems } from "../../utils/generators";
 
 const MultiplicationsGame: React.FC<any> = (props) => {
   const nodeRef = React.useRef<HTMLDivElement>(null);
@@ -23,34 +24,12 @@ const MultiplicationsGame: React.FC<any> = (props) => {
   }, [userInput]);
 
   useEffect(() => {
-    setProblems(generateProblems());
+    if (props.show) {
+      setCurrentProblem(0);
+      setProblems(generateProblems(state.maxNumberToMultiply, state.quantity));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state]);
-
-  const generateProblems = () => {
-    const allPossibles = [];
-    for (let i = 2; i <= state.maxNumberToMultiply; i++) {
-      for (let j = 2; j <= 9; j++) {
-        allPossibles.push({
-          display: `${i}x${j}`,
-          solution: i * j,
-        });
-      }
-    }
-
-    const probs: any = [];
-    for (let i = 0; i < state.quantity; i++) {
-      const randomIndex = getRandomInt(allPossibles.length);
-      if (allPossibles[randomIndex]) probs.push(allPossibles[randomIndex]);
-      allPossibles.splice(randomIndex, 1);
-    }
-
-    return probs;
-  };
-
-  const getRandomInt = (max: number) => {
-    return Math.floor(Math.random() * Math.floor(max));
-  };
+  }, [props.show]);
 
   return (
     <CSSTransition
@@ -66,11 +45,22 @@ const MultiplicationsGame: React.FC<any> = (props) => {
           </button>
         </div>
 
-        <ProblemWindow display={problems[currentProblem]?.display} />
+        {problems[currentProblem] ? (
+          <>
+            <ProblemWindow display={problems[currentProblem]?.display} />
 
-        <div style={{ marginTop: "auto" }}>
-          <NumPad setCurrentNumber={setUserInput} currentNumber={userInput} />
-        </div>
+            <div style={{ marginTop: "auto" }}>
+              <NumPad
+                setCurrentNumber={setUserInput}
+                currentNumber={userInput}
+              />
+            </div>
+          </>
+        ) : (
+          <>
+            <p>END</p>
+          </>
+        )}
       </div>
     </CSSTransition>
   );
