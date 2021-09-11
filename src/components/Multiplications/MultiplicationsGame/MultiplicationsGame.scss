@@ -1,0 +1,37 @@
+.MultiplicationsGame {
+  background: white;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(100vh);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  &.enter-done {
+    transform: translateY(0);
+    pointer-events: visible;
+  }
+
+  &.exit {
+    transform: translateY(100vh);
+  }
+
+  .close-button {
+    border-radius: 8px;
+    padding: 0;
+    border: none;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: rgba(175, 175, 175, 0.637);
+    width: 50px;
+    height: 50px;
+  }
+}

@@ -1,0 +1,13 @@
+.ProblemWindow {
+  border: 3px solid rgb(158, 158, 158);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 40px;
+  position: relative;
+  overflow: hidden;
+}

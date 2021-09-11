@@ -1,0 +1,30 @@
+.NumPad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .user-input {
+    background-color: rgb(53, 53, 53);
+    color: greenyellow;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 25px;
+  }
+  .row {
+    display: flex;
+  }
+  .pad-button {
+    margin: 10px;
+    width: 75px;
+    height: 75px;
+    &:hover {
+      filter: none;
+      opacity: 1;
+      color: inherit;
+    }
+    &:active {
+      opacity: 0.55;
+    }
+  }
+}
