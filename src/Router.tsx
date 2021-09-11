@@ -1,9 +1,11 @@
 import React from "react";
 import { Navigate, useRoutes } from "react-router";
+import MultiplicationsContext from "./contexts/MultiplicationsContext";
 import NavLayout from "./layout/NavLayout";
 import Courses from "./pages/Courses/Courses";
 import Exercises from "./pages/Exercises/Exercises";
 import Home from "./pages/Home/Home";
+import MultiplicationsPage from "./pages/Multiplications/MultiplicationsPage";
 
 export default function Router() {
   return useRoutes([
@@ -17,21 +19,39 @@ export default function Router() {
         },
         {
           path: "/exercises",
-          element: <Exercises />,
+          children: [
+            {
+              path: "/",
+              element: <Exercises />,
+            },
+            {
+              path: "/multiplications",
+              element: (
+                <MultiplicationsContext>
+                  <MultiplicationsPage />
+                </MultiplicationsContext>
+              ),
+            },
+          ],
         },
         {
           path: "/courses",
           element: <Courses />,
         },
-        {
-          path: "*",
-          element: <Navigate to="/home" replace />,
-        },
       ],
     },
     {
       path: "/",
-      element: <Navigate to="/app/home" replace />,
+      children: [
+        {
+          path: "",
+          element: <Navigate to="/app/home" replace />,
+        },
+        {
+          path: "*",
+          element: <Navigate to="/app/home" replace />,
+        },
+      ],
     },
   ]);
 }

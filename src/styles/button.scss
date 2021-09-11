@@ -1,0 +1,63 @@
+// button style
+.button-root {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  padding: 7px 18px;
+  line-height: 28px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.25s ease-out, background-color 0.25s ease-out,
+    border-color 0.25s ease-out;
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.55;
+    color: #fff;
+  }
+
+  &:active {
+    filter: brightness(0.9);
+    color: #fff;
+    opacity: 1;
+    transform: translateY(1px);
+  }
+
+  &.button-primary {
+    color: #fff;
+    border: 2px solid var(--primary);
+    background: var(--primary);
+  }
+
+  &.button-danger {
+    color: #fff;
+    border: 2px solid var(--danger);
+    background: var(--danger);
+  }
+
+  &.button-success {
+    color: #fff;
+    border: 2px solid var(--success);
+    background: var(--success);
+  }
+
+  &.button-info {
+    color: #fff;
+    border: 2px solid var(--info);
+    background: var(--info);
+  }
+
+  &:disabled {
+    background: rgb(190, 190, 190);
+    border-color: rgb(190, 190, 190);
+    color: #898989;
+    &:hover {
+      color: #898989;
+      opacity: 1;
+      cursor: not-allowed;
+    }
+  }
+}
