@@ -1,0 +1,27 @@
+.MultiplicationsTable {
+  table td,
+  td {
+    border: 2px solid grey;
+    text-align: center;
+    padding: 2px;
+    font-size: 20px;
+    border-radius: 8px;
+  }
+
+  tr:hover {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+  }
+
+  .study-col {
+    background: var(--success);
+    color: white;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+  }
+}

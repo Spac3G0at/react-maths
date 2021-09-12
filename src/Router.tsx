@@ -3,6 +3,7 @@ import { Navigate, useRoutes } from "react-router";
 import MultiplicationsContext from "./contexts/MultiplicationsContext";
 import NavLayout from "./layout/NavLayout";
 import Courses from "./pages/Courses/Courses";
+import MultiplicationsTable from "./pages/Courses/MultiplicationsTable.tsx/MultiplicationsTable";
 import Exercises from "./pages/Exercises/Exercises";
 import Home from "./pages/Home/Home";
 import MultiplicationsPage from "./pages/Multiplications/MultiplicationsPage";
@@ -36,7 +37,16 @@ export default function Router() {
         },
         {
           path: "/courses",
-          element: <Courses />,
+          children: [
+            {
+              path: "",
+              element: <Courses />,
+            },
+            {
+              path: "/tables",
+              element: <MultiplicationsTable />,
+            },
+          ],
         },
       ],
     },
