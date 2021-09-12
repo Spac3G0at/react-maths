@@ -4,8 +4,9 @@ import { CSSTransition } from "react-transition-group";
 import { IoArrowBackOutline } from "react-icons/io5";
 import NumPad from "../../NumPad/NumPad";
 import { MultiplicationsContext } from "../../../contexts/MultiplicationsContext";
-import ProblemWindow from "../../ProblemWindow/ProblemWindow";
 import { generateProblems } from "../../utils/generators";
+import "./../../ProblemWindow/ProblemWindow.scss";
+import ProgressTimer from "../../ProgressTimer/ProgressTimer";
 
 const MultiplicationsGame: React.FC<any> = (props) => {
   const nodeRef = React.useRef<HTMLDivElement>(null);
@@ -47,7 +48,14 @@ const MultiplicationsGame: React.FC<any> = (props) => {
 
         {problems[currentProblem] ? (
           <>
-            <ProblemWindow display={problems[currentProblem]?.display} />
+            <div className="ProblemWindow">
+              <ProgressTimer
+                currentProblem={currentProblem}
+                onTimeout={setCurrentProblem}
+                maxTime={state.maxTimer}
+              />
+              <span>{problems[currentProblem]?.display}</span>
+            </div>
 
             <div style={{ marginTop: "auto" }}>
               <NumPad
