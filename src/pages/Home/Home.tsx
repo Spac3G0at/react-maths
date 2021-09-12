@@ -1,4 +1,5 @@
 import React from "react";
+import { IoConstructSharp } from "react-icons/io5";
 import Page from "../../layout/Page/Page";
 
 const Home: React.FC = () => {
@@ -9,7 +10,10 @@ const Home: React.FC = () => {
           height: "100%",
         }}
       >
-        <p>HOME</p>
+        <h1 style={{ textAlign: "center" }}>
+          <IoConstructSharp />
+        </h1>
+        <h1 style={{ textAlign: "center" }}>App under development</h1>
       </div>
     </Page>
   );

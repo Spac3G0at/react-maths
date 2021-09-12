@@ -25,7 +25,12 @@ const MultiplicationsGame: React.FC<any> = (props) => {
   }, [userInput]);
 
   useEffect(() => {
+    setUserInput(null);
+  }, [currentProblem]);
+
+  useEffect(() => {
     if (props.show) {
+      setUserInput(null);
       setCurrentProblem(0);
       setProblems(generateProblems(state.maxNumberToMultiply, state.quantity));
     }
