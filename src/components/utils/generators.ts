@@ -25,3 +25,14 @@ export const generateProblems = (
 export const getRandomInt = (max: number) => {
   return Math.floor(Math.random() * Math.floor(max));
 };
+
+export const generateTableProblems = (table: number) => {
+  const allPossibles = [];
+  for (let i = 2; i <= 9; i++) {
+    allPossibles.push({
+      display: `${table}x${i}`,
+      solution: table * i,
+    });
+  }
+  return allPossibles;
+};

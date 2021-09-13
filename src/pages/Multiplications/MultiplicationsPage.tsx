@@ -31,7 +31,7 @@ const MultiplicationsPage: React.FC = () => {
             alignItems: "center",
             justifyContent: "center",
             borderRadius: "50%",
-            boxShadow: "rgb(176 176 176) 0px 4px 15px 2px",
+            boxShadow: "rgb(176, 210, 176) 0px 4px 15px 2px",
           }}
           onClick={() => setPlay(true)}
           className="button-root button-success"
