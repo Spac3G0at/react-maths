@@ -11,7 +11,7 @@ const BottomNav: React.FC = () => {
   const navigate = useNavigate();
 
   const setActive = (path: string) => {
-    navigate(path);
+    if (pathname !== path) navigate(path);
   };
 
   const isActive = (path: string) => {
