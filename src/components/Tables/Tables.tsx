@@ -1,15 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { CSSTransition } from "react-transition-group";
+import EasyMode from "../EasyMode/EasyMode";
 import NumPad from "../NumPad/NumPad";
 import { generateTableProblems } from "../utils/generators";
 import "./Tables.scss";
 
-const Tables: React.FC<{ show: boolean; exit: any; tableNumber: number }> = ({
-  show,
-  exit,
-  tableNumber,
-}) => {
+const Tables: React.FC<{
+  show: boolean;
+  exit: any;
+  tableNumber: number;
+  easyMode: boolean;
+}> = ({ show, exit, tableNumber, easyMode }) => {
   const nodeRef = useRef<HTMLDivElement>(null);
   const [userInput, setUserInput] = useState<number | null>(null);
   const [currentProblem, setCurrentProblem] = useState(0);
@@ -55,12 +57,20 @@ const Tables: React.FC<{ show: boolean; exit: any; tableNumber: number }> = ({
               <span>{problems[currentProblem]?.display}</span>
             </div>
 
-            <div style={{ marginTop: "auto" }}>
-              <NumPad
+            {easyMode ? (
+              <EasyMode
+                allProblems={problems}
+                problem={problems[currentProblem]}
                 setCurrentNumber={setUserInput}
-                currentNumber={userInput}
               />
-            </div>
+            ) : (
+              <div style={{ marginTop: "auto" }}>
+                <NumPad
+                  setCurrentNumber={setUserInput}
+                  currentNumber={userInput}
+                />
+              </div>
+            )}
           </>
         ) : (
           <>

@@ -9,6 +9,11 @@ const numbers = [2, 3, 4, 5, 6, 7, 8, 9];
 const TablesPage: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [tableNumber, setTableNumber] = useState(2);
+  const [easyMode, setEasyMode] = useState(false);
+
+  const handleModeCheck = (e: any) => {
+    setEasyMode(e.target.checked);
+  };
 
   const handleStart = (num: number) => {
     setTableNumber(num);
@@ -29,7 +34,22 @@ const TablesPage: React.FC = () => {
         ))}
       </div>
 
-      <Tables tableNumber={tableNumber} exit={handleClose} show={open} />
+      <div className="easy-mode">
+        <label htmlFor="mode">Easy</label>
+        <input
+          type="checkbox"
+          name="easy"
+          checked={easyMode}
+          onChange={handleModeCheck}
+        />
+      </div>
+
+      <Tables
+        easyMode={easyMode}
+        tableNumber={tableNumber}
+        exit={handleClose}
+        show={open}
+      />
     </Page>
   );
 };

@@ -36,3 +36,30 @@ export const generateTableProblems = (table: number) => {
   }
   return allPossibles;
 };
+
+function shuffle(a: any) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+export const generateSuggestions = (current: any, all: any) => {
+  const allSolutions = [...all].filter(
+    (sol: any) => current.display !== sol.display
+  );
+
+  const suggestions = [current.solution];
+
+  for (let i = 0; i < 3; i++) {
+    const suggest = allSolutions[getRandomInt(allSolutions.length)];
+    suggestions.push(suggest.solution);
+    const index = allSolutions.findIndex(
+      (e: any) => e.display === suggest.display
+    );
+    allSolutions.splice(index, 1);
+  }
+
+  return shuffle(suggestions);
+};
