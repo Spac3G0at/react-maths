@@ -7,6 +7,7 @@ import MultiplicationsTable from "./pages/Courses/MultiplicationsTable.tsx/Multi
 import Exercises from "./pages/Exercises/Exercises";
 import Home from "./pages/Home/Home";
 import MultiplicationsPage from "./pages/Multiplications/MultiplicationsPage";
+import TablesPage from "./pages/TablesPage/TablesPage";
 
 export default function Router() {
   return useRoutes([
@@ -32,6 +33,10 @@ export default function Router() {
                   <MultiplicationsPage />
                 </MultiplicationsContext>
               ),
+            },
+            {
+              path: "/tables",
+              element: <TablesPage />,
             },
           ],
         },

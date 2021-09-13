@@ -16,8 +16,8 @@ const Exercises: React.FC = () => {
           <h4>Multiplications</h4>
         </Card>
         <br />
-        <Card>
-          <h4>Additions</h4>
+        <Card onClick={() => navigate("/app/exercises/tables")}>
+          <h4>Tables</h4>
         </Card>
       </div>
     </Page>
