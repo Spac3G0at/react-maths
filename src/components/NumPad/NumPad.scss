@@ -4,6 +4,9 @@
   justify-content: center;
   .user-input {
     background-color: rgb(53, 53, 53);
+    width: 265px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: greenyellow;
     margin: 10px;
     padding: 10px;
