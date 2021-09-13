@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Card from "../Card/Card";
 import { generateSuggestions, getRandomInt } from "../utils/generators";
 import "./EasyMode.scss";
 

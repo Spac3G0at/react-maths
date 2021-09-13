@@ -7,6 +7,7 @@ import { MultiplicationsContext } from "../../../contexts/MultiplicationsContext
 import { generateProblems } from "../../utils/generators";
 import "./../../ProblemWindow/ProblemWindow.scss";
 import ProgressTimer from "../../ProgressTimer/ProgressTimer";
+import MultiplicationsGameResults from "../MultiplicationsGameResults/MultiplicationsGameResults";
 
 const MultiplicationsGame: React.FC<any> = (props) => {
   const nodeRef = React.useRef<HTMLDivElement>(null);
@@ -14,6 +15,9 @@ const MultiplicationsGame: React.FC<any> = (props) => {
   const { state } = useContext(MultiplicationsContext);
   const [problems, setProblems] = useState<any>([]);
   const [currentProblem, setCurrentProblem] = useState(0);
+
+  const [times, setTimes] = useState<any>([]);
+  const [lastTime, setLastTime] = useState(0);
 
   useEffect(() => {
     if (userInput === problems[currentProblem]?.solution) {
@@ -32,10 +36,25 @@ const MultiplicationsGame: React.FC<any> = (props) => {
     if (props.show) {
       setUserInput(null);
       setCurrentProblem(0);
+      setLastTime(0);
+      setTimes([]);
       setProblems(generateProblems(state.maxNumberToMultiply, state.quantity));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.show]);
+
+  const getTime = (time: any) => {
+    if (!time) return;
+    setLastTime(time);
+  };
+
+  useEffect(() => {
+    if (lastTime > 0) {
+      const t = [...times];
+      t.push(lastTime);
+      setTimes(t);
+    }
+  }, [lastTime]);
 
   return (
     <CSSTransition
@@ -55,6 +74,7 @@ const MultiplicationsGame: React.FC<any> = (props) => {
           <>
             <div className="ProblemWindow">
               <ProgressTimer
+                sendTime={getTime}
                 currentProblem={currentProblem}
                 onTimeout={setCurrentProblem}
                 maxTime={state.maxTimer}
@@ -71,7 +91,7 @@ const MultiplicationsGame: React.FC<any> = (props) => {
           </>
         ) : (
           <>
-            <p>END</p>
+            <MultiplicationsGameResults times={times} />
           </>
         )}
       </div>
