@@ -25,7 +25,7 @@ const TablesPage: React.FC = () => {
 
   return (
     <Page className="TablePage">
-      <h3 style={{ textAlign: "center" }}>Tables</h3>
+      <h3 style={{ textAlign: "center", margin: "10px 0px" }}>Tables</h3>
       <div className="grid">
         {numbers.map((el: number) => (
           <div key={el} className="grid-item">
