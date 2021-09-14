@@ -26,6 +26,9 @@ const Tables: React.FC<{
 
   useEffect(() => {
     setUserInput(null);
+    if (!problems[currentProblem]) {
+      exit();
+    }
   }, [currentProblem]);
 
   useEffect(() => {
