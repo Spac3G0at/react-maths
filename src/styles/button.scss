@@ -12,18 +12,19 @@
   transition: all 0.25s ease-out, background-color 0.25s ease-out,
     border-color 0.25s ease-out;
   user-select: none;
+  box-shadow: 1px 1px 10px 0px #d0d0d0;
 
   &:hover {
     cursor: pointer;
-    opacity: 0.55;
+    // opacity: 0.55;
     color: #fff;
   }
 
   &:active {
-    filter: brightness(0.9);
+    // filter: brightness(0.9);
     color: #fff;
     opacity: 1;
-    transform: translateY(1px);
+    transform: translateY(2px);
   }
 
   &.button-primary {
