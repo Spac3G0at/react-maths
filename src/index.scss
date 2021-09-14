@@ -38,3 +38,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.neumorphic {
+  background: #e0e0e0;
+  box-shadow: -1px 4px 12px #a4a4a4, 6px -6px 12px #ffffff;
+  &:active {
+    background: #e0e0e0;
+    box-shadow: inset -6px 6px 12px #a4a4a4, inset 6px -6px 12px #ffffff;
+  }
+}

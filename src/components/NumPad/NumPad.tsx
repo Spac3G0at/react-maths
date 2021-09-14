@@ -38,7 +38,7 @@ const NumPad: React.FC<{
                 {arr.map((num, j) => (
                   <button
                     key={j}
-                    className="button-root pad-button"
+                    className="pad-button neumorphic"
                     onClick={() => selectNumber(num)}
                   >
                     <h1>{num}</h1>
@@ -49,7 +49,7 @@ const NumPad: React.FC<{
           })}
           <div className="row">
             <button
-              className="button-root pad-button"
+              className="pad-button neumorphic"
               onClick={() => setCurrentNumber(null)}
             >
               <h1>
@@ -57,12 +57,12 @@ const NumPad: React.FC<{
               </h1>
             </button>
             <button
-              className="button-root pad-button"
+              className="pad-button neumorphic"
               onClick={() => selectNumber(0)}
             >
               <h1>{0}</h1>
             </button>
-            <button className="button-root pad-button" onClick={undo}>
+            <button className="pad-button neumorphic" onClick={undo}>
               <h1>
                 <BsBackspace />
               </h1>

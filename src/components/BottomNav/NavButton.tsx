@@ -7,7 +7,10 @@ const NavButton: React.FC<{ icon: any; active?: boolean; onClick: any }> = ({
   onClick,
 }) => {
   return (
-    <button onClick={onClick} className={`NavButton ${active && "active"}`}>
+    <button
+      onClick={onClick}
+      className={`NavButton ${active && "active"} neumorphic`}
+    >
       <div>{icon}</div>
     </button>
   );

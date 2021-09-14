@@ -20,18 +20,11 @@
   }
   .pad-button {
     margin: 10px;
-    box-shadow: #b0b0b0 0px 3px 0px 1px;
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    background: white;
     width: 75px;
     height: 75px;
-    &:hover {
-      filter: none;
-      opacity: 1;
-      color: inherit;
-    }
-    &:active {
-      box-shadow: #b0b0b0 0 0px 0px 0px;
-      transform: translateY(5px) scale(0.99);
-      // opacity: 0.55;
-    }
   }
 }

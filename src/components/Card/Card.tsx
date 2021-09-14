@@ -3,7 +3,7 @@ import "./Card.scss";
 
 const Card = forwardRef(
   ({ children, title = "", noPadding, ...other }: any, ref) => (
-    <div className="Card" ref={ref} {...other}>
+    <div className="Card neumorphic" ref={ref} {...other}>
       {children}
     </div>
   )
