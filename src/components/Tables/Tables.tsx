@@ -3,7 +3,7 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import { CSSTransition } from "react-transition-group";
 import EasyMode from "../EasyMode/EasyMode";
 import NumPad from "../NumPad/NumPad";
-import { generateTableProblems } from "../utils/generators";
+import { generateTableProblems, shuffleArray } from "../utils/generators";
 import "./Tables.scss";
 
 const Tables: React.FC<{
@@ -11,7 +11,8 @@ const Tables: React.FC<{
   exit: any;
   tableNumber: number;
   easyMode: boolean;
-}> = ({ show, exit, tableNumber, easyMode }) => {
+  shuffle: boolean;
+}> = ({ show, exit, tableNumber, easyMode, shuffle }) => {
   const nodeRef = useRef<HTMLDivElement>(null);
   const [userInput, setUserInput] = useState<number | null>(null);
   const [currentProblem, setCurrentProblem] = useState(0);
@@ -20,9 +21,10 @@ const Tables: React.FC<{
   useEffect(() => {
     if (show) {
       setCurrentProblem(0);
-      setProblems(generateTableProblems(tableNumber));
+      const pr = generateTableProblems(tableNumber);
+      setProblems(shuffle ? shuffleArray(pr) : pr);
     }
-  }, [show, tableNumber]);
+  }, [show, tableNumber, shuffle]);
 
   useEffect(() => {
     setUserInput(null);

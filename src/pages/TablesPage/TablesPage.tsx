@@ -10,6 +10,7 @@ const TablesPage: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [tableNumber, setTableNumber] = useState(2);
   const [easyMode, setEasyMode] = useState(false);
+  const [shuffle, setShuffle] = useState(false);
 
   const handleModeCheck = (e: any) => {
     setEasyMode(e.target.checked);
@@ -35,17 +36,28 @@ const TablesPage: React.FC = () => {
       </div>
 
       <div className="easy-mode">
-        <label htmlFor="mode">Easy</label>
         <input
           type="checkbox"
           name="easy"
           checked={easyMode}
           onChange={handleModeCheck}
         />
+        <label htmlFor="mode">Easy</label>
+      </div>
+
+      <div className="easy-mode">
+        <input
+          type="checkbox"
+          name="shuffle"
+          checked={shuffle}
+          onChange={(e: any) => setShuffle(e.target.checked)}
+        />
+        <label htmlFor="shuffle">Shuffle</label>
       </div>
 
       <Tables
         easyMode={easyMode}
+        shuffle={shuffle}
         tableNumber={tableNumber}
         exit={handleClose}
         show={open}

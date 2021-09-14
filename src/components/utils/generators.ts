@@ -37,13 +37,13 @@ export const generateTableProblems = (table: number) => {
   return allPossibles;
 };
 
-function shuffle(a: any) {
+export const shuffleArray = (a: any) => {
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
-}
+};
 
 export const generateSuggestions = (current: any, all: any) => {
   const allSolutions = [...all].filter(
@@ -61,5 +61,5 @@ export const generateSuggestions = (current: any, all: any) => {
     allSolutions.splice(index, 1);
   }
 
-  return shuffle(suggestions);
+  return shuffleArray(suggestions);
 };
