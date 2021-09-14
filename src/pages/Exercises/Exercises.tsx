@@ -12,6 +12,7 @@ const Exercises: React.FC = () => {
           height: "100%",
         }}
       >
+        <h1 style={{ textAlign: "center", margin: "10px 0px" }}>Exercises</h1>
         <Card onClick={() => navigate("/app/exercises/multiplications")}>
           <h4>Multiplications</h4>
         </Card>

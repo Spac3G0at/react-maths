@@ -10,7 +10,9 @@ const MultiplicationsPage: React.FC = () => {
 
   return (
     <Page className="MultiplicationsPage">
-      <h3>Multiplications</h3>
+      <h3 style={{ textAlign: "center", margin: "10px 0px" }}>
+        Multiplications
+      </h3>
 
       <MultiplicationsSettingsButton />
 

@@ -8,9 +8,13 @@ const MultiplicationsGameResults: React.FC<{ times: any }> = ({ times }) => {
     <div className="MultiplicationsGameResults">
       <div>
         <p>
-          {`Average time : ${(
-            times.reduce((a: number, b: number) => a + b, 0) / times.length
-          ).toFixed(2)}s`}
+          Average time{" "}
+          <b>
+            {" "}
+            {`${(
+              times.reduce((a: number, b: number) => a + b, 0) / times.length
+            ).toFixed(2)}s`}
+          </b>
         </p>
       </div>
     </div>
